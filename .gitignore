@@ -9,8 +9,7 @@ artefactos_reto/
 *.pt
 *.safetensors
 
-# ===== Notas locales =====
-contexto.md
+
 
 # ===== Datos y credenciales =====
 *.parquet

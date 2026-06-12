@@ -4,6 +4,9 @@
 # pero NO se versiona en git.
 artefactos_reto/
 *.joblib
+# Excepcion: el bundle ligero (~1 MB, solo XGBoost + preprocesadores)
+# SI se versiona para poder probar el modelo sin reentrenar.
+!modelo_reto.joblib
 *.npy
 *.pkl
 *.pt

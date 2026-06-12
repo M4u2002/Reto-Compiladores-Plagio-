@@ -1,17 +1,32 @@
 # Reto-Compiladores-Plagio-
 
-Reto en equipo del bloque de compiladores para la detección de plagio en código.
+Reto en equipo del bloque de compiladores: **detección de plagio en código mediante la identificación de código generado por LLM**, replicando a Ramachandra et al. (2026) sobre el dataset de la SemEval-2026 Task 13 (Subtask A).
 
 **Equipo (EquipoCompiladores):** Juan Pablo Chávez Leal · Mauricio Anguiano Juárez · Daniel Contreras Chávez — ITESM, Campus Querétaro (TC3002B).
 
-Este repositorio contiene dos retos independientes, ambos inspirados en Ramachandra et al. (2026):
+## Contenido
 
-| Reto | Notebook | Marco de referencia | Tarea | Dataset |
-|---|---|---|---|---|
-| Detección de código generado por IA | [`retov3.ipynb`](retov3.ipynb) | [`README_retov3.md`](README_retov3.md) | Humano vs. IA (fragmento) | SemEval-2026 Task 13, Subtask A (601k filas) |
-| Detección de plagio entre archivos | [`reto_v3.ipynb`](reto_v3.ipynb) | [`README_reto_v3.md`](README_reto_v3.md) | Plagio vs. no-plagio (par de archivos) | 293 pares de archivos Python |
+| Archivo | Qué es |
+|---|---|
+| [`RetoPlagio.ipynb`](RetoPlagio.ipynb) | Notebook con todo el código: features + TF-IDF + Random Forest / XGBoost |
+| [`Marco de referencia.md`](Marco%20de%20referencia.md) | Problemática, marco teórico, estado del arte, metodología, resultados y limitaciones |
+| `modelo_reto.joblib` | Modelo XGBoost ya entrenado (~1 MB) — permite probar el notebook sin reentrenar |
+| [`figuras/`](figuras/) | Gráficas de evaluación generadas por el notebook |
 
-Cada README documenta la problemática, el dataset, la arquitectura, los resultados y las limitaciones de su notebook. Los notebooks contienen únicamente el código.
+## Probar el modelo sin entrenar
+
+1. Clonar el repo y abrir `RetoPlagio.ipynb`.
+2. Correr la CELDA 1 (imports), la celda CARGAR (11), la CELDA 14 y la celda de PRUEBAS (15).
+3. Pegar cualquier fragmento de código en el diccionario `pruebas` para clasificarlo como humano o generado por IA, con su probabilidad.
+
+El entrenamiento completo (~500k fragmentos, requiere credenciales de Kaggle) solo es necesario para reproducir los resultados desde cero.
+
+## Resultados (macro F1, validación oficial)
+
+| Modelo | Macro F1 |
+|--------|----------|
+| **XGBoost** | **0.9917** |
+| Random Forest | 0.9832 |
 
 ## Referencia
 

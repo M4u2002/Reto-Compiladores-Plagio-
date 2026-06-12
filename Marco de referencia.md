@@ -61,7 +61,7 @@ Estos resultados son consistentes con los reportados por Ramachandra et al. (F1 
 
 ## 5. Reproducción y persistencia
 
-1. **Probar el modelo sin reentrenar (flujo recomendado al clonar el repo):** ejecutar la CELDA 1 (imports), la celda **CARGAR (11)**, la CELDA 14 (`predict_code`) y la celda de **PRUEBAS (15)**. El modelo XGBoost ya entrenado viene versionado en el repo (`modelo_reto.joblib`, ~1 MB, con el TF-IDF y el scaler incluidos), así que no se necesita descargar el dataset ni entrenar nada.
+1. **Probar el modelo sin reentrenar (flujo recomendado al clonar el repo):** ejecutar la CELDA 1 (imports), la celda **CARGAR (11)**, la CELDA 14 (`predict_code`) y la celda de **PRUEBAS (15)**. El modelo XGBoost ya entrenado viene versionado en el repo (`modelo_reto.joblib`, ~1 MB, con el TF-IDF y el scaler incluidos), así que no se necesita descargar el dataset ni entrenar nada. Para probar también con el Random Forest, la celda opcional **11b** lo descarga ya entrenado (~376 MB) desde el Release `modelos-v1` del repositorio.
 2. **Reentrenar desde cero:** ejecutar el notebook completo (requiere credenciales de Kaggle). La celda **GUARDAR (10)** regenera `modelo_reto.joblib` y además serializa el bundle completo (incluido el Random Forest) en `artefactos_reto/` (~380 MB; excluido de git porque GitHub rechaza archivos > 100 MB).
 3. El notebook también genera gráficas de evaluación en `figuras/`: matrices de confusión (`matrices_confusion.png`), curvas ROC (`curvas_roc.png`), importancia de features (`importancia_features.png`) y el diagnóstico de overfitting (`train_vs_val_loss.png`).
 
